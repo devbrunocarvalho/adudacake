@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confeitaria Duda Cake</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Monte o Seu Bolo Com a Duda!</h1>
+        <a href="https://instagram.com/adudascake" target="_blank" class="instagram-link">
+            <i class="fab fa-instagram"></i>
+        </a>
+
+        <form id="cakeForm">
+            <label for="massa">Escolha a massa:</label>
+            <select id="massa" name="massa" required>
+                <option value="">Selecione...</option>
+                <option value="Chocolate">Chocolate</option>
+                <option value="Baunilha">Baunilha</option>
+            </select>
+
+            <label for="recheio">Escolha o recheio:</label>
+            <select id="recheio" name="recheio" required>
+                <option value="">Selecione...(kg)</option>
+                <option value="Brigadeiro">Brigadeiro -R$65kg</option>
+                <option value="Ninho">Ninho - R$65kg</option>
+                <option value="Recheio de Maracujá">Recheio de Maracujá - R$65</option>
+                <option value="Baba de Moça">Baba de Moça - R$70</option>
+                <option value="Creme Belca">Creme Belca - R$70</option>
+                <option value="4 Leites">4 Leites - R$70kg</option>
+                <option value="Doce de Leite">Dode de Leite - R$70</option>
+                <option value="Cocada Cremosa">Cocada Cremosa - R$70</option>
+                <option value="Ninho com Nutela">Ninho com Nutella - R$80</option>
+                <option value="Ninho com Morango">Ninho com Morango - R$80</option>
+                <option value="Prestigio">Prestígio - R$75</option>
+                <option value="Brigadeiro de Café">Brigadeiro de Café - R$75</option>
+                <option value="Abacaxi com Coco">Abacaxi com Coco - R$80</option>
+                <option value="Meio Amargo">Meio Amargo - R$75</option>
+                <option value="Doce de Leite com Ameixa">Doce de Leite com Ameixa - R$80</option>
+                <option value="Creme de Oreo">Creme de Oreo - R$75</option>
+                <option value="Sonho de Valsa">Sonho de Valsa - R$75</option>
+                <option value="Creme Belga com Abacaxi">Creme Belga com Abacaxi - R$80</option>
+                <option value="Chocolate ao Leite/Branco">Chocolate ao Leite/Branco - R$75</option>
+            </select>
+            <label for="kilos">Quantos kilos?</label>
+            <select id="kilos" name="kilos" required>
+                <option value="">Selecione...</option>
+                <option value="1,5kg">1,5kg</option>
+                <option value="2kg">2kg</option>
+                <option value="2,5kg">2,5kg</option>
+                <option value="3kg">3kg</option>
+                <option value="2,5kg">3,5kg</option>
+                <option value="4kg">4kg</option>
+                <option value="4,5kg">4,5kg</option>
+                <option value="5kg">5kg</option>
+                <option value="5,5kg">5,5kg</option>
+                <option value="6kg">6kg</option>
+                <option value="6,5kg">6,5kg</option>
+                <option value="7kg">7kg</option>
+                <option value="outro">Outro...</option>
+            </select>
+            <label for="cupcakes">Quer cupcakes?</label>
+            <select id="cupcakes" name="cupcakes" required>
+                <option value="">Selecione...</option>
+                <option value="quero cupcakes">Sim</option>
+                <option value="não quero cupcakes">Não</option>
+            </select>
+            <label for="doces">Quer doces?</label>
+            <select id="doces" name="doces" required>
+                <option value="">Selecione...</option>
+                <option value="quero doces">Sim</option>
+                <option value="não quero doces">Não</option>
+            </select>
+            <label for="salgados">Quer salgados?</label>
+            <select id="salgados" name="salgados" required>
+                <option value="">Selecione...</option>
+                <option value="quero salgados">Sim</option>
+                <option value="não quero salgados">Não</option>
+            </select>
+            
+            <label for="foto">Caso queira topo, envie uma foto de referência</label>
+            <input type="file" id="foto" name="foto" accept="image/*">
+
+            <button type="submit">Enviar pelo WhatsApp</button>
+            <p>Kits promocionais ou Personalizados podem ser pedidos diretamente no WhatsApp, assim conseguimos atender melhor a sua necessidade.</p>
+
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('cakeForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evita o envio padrão do formulário
+        
+            // Número do WhatsApp (somente números, com DDI)
+            const numero = "5561986172421"; 
+        
+            // Coleta dos valores do formulário
+            const massa = document.getElementById('massa').value;
+            const recheio = document.getElementById('recheio').value;
+            const kilos = document.getElementById('kilos').value;
+            const cupcakes = document.getElementById('cupcakes').value;
+            const doces = document.getElementById('doces').value;
+            const salgados = document.getElementById('salgados').value;
+        
+            // Monta a mensagem
+            const mensagem = `🍰 *Novo Pedido - Duda Cake* 🍰
+        
+        *Massa:* ${massa}
+        *Recheio:* ${recheio}
+        *Quantidade:* ${kilos}
+        *Cupcakes:* ${cupcakes}
+        *Doces:* ${doces}
+        *Salgados:* ${salgados}
+        
+        Foto de topo (se enviada): verificar no formulário.`;
+        
+            // Codifica a mensagem para URL
+            const mensagemCodificada = encodeURIComponent(mensagem);
+        
+            // Cria o link do WhatsApp
+            const linkWhatsApp = `https://wa.me/${numero}?text=${mensagemCodificada}`;
+        
+            // Abre o WhatsApp em nova aba
+            window.open(linkWhatsApp, '_blank');
+        });
+        </script>
+        
+</body>
+</html>

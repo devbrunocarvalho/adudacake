@@ -1,0 +1,104 @@
+/* RESET BÁSICO */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Outfit", sans-serif;
+}
+
+/* FUNDO GERAL */
+body {
+    background: url('./img/sobremesa-de-bolo-de-baunilha-com-morango-no-topo.jpg') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* CONTAINER PRINCIPAL */
+.container {
+    width: 100%;
+    max-width: 450px;
+    background: linear-gradient(135deg, #ffd4e5, #fff0f5);
+    border-radius: 20px;
+    padding: 30px 25px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(5px);
+}
+
+/* TÍTULO */
+h1 {
+    text-align: center;
+    color: #b83265;
+    margin-bottom: 25px;
+    font-size: 1.8em;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+
+/* FORMULÁRIO */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* LABELS */
+label {
+    font-weight: 600;
+    color: #6a2c4d;
+    font-size: 0.95em;
+}
+
+/* INPUTS E SELECTS */
+select, input[type="file"] {
+    padding: 10px 12px;
+    border: 1px solid #e0a9c4;
+    border-radius: 10px;
+    background-color: #fff;
+    font-size: 1em;
+    transition: 0.2s ease-in-out;
+}
+
+select:focus, input[type="file"]:focus {
+    border-color: #b83265;
+    outline: none;
+    box-shadow: 0 0 4px #b83265;
+}
+
+/* BOTÃO */
+button {
+    background: linear-gradient(135deg, #b83265, #d14b7a);
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 12px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #992a56, #b83265);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(184, 50, 101, 0.3);
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 600px) {
+    .container {
+        padding: 25px 20px;
+        max-width: 100%;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    button {
+        font-size: 1em;
+    }
+}
