@@ -83,9 +83,6 @@
                 <option value="quero salgados">Sim</option>
                 <option value="não quero salgados">Não</option>
             </select>
-            
-            <label for="foto">Caso queira topo, envie uma foto de referência</label>
-            <input type="file" id="foto" name="foto" accept="image/*">
 
             <button type="submit">Enviar pelo WhatsApp</button>
             <p>Kits promocionais ou Personalizados podem ser pedidos diretamente no WhatsApp, assim conseguimos atender melhor a sua necessidade.</p>
@@ -93,43 +90,44 @@
         </form>
     </div>
 
-    <script>
-        document.getElementById('cakeForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Evita o envio padrão do formulário
-        
-            // Número do WhatsApp (somente números, com DDI)
-            const numero = "5561986172421"; 
-        
-            // Coleta dos valores do formulário
-            const massa = document.getElementById('massa').value;
-            const recheio = document.getElementById('recheio').value;
-            const kilos = document.getElementById('kilos').value;
-            const cupcakes = document.getElementById('cupcakes').value;
-            const doces = document.getElementById('doces').value;
-            const salgados = document.getElementById('salgados').value;
-        
-            // Monta a mensagem
-            const mensagem = `🍰 *Novo Pedido - Duda Cake* 🍰
-        
-        *Massa:* ${massa}
-        *Recheio:* ${recheio}
-        *Quantidade:* ${kilos}
-        *Cupcakes:* ${cupcakes}
-        *Doces:* ${doces}
-        *Salgados:* ${salgados}
-        
-        Foto de topo (se enviada): verificar no formulário.`;
-        
-            // Codifica a mensagem para URL
-            const mensagemCodificada = encodeURIComponent(mensagem);
-        
-            // Cria o link do WhatsApp
-            const linkWhatsApp = `https://wa.me/${numero}?text=${mensagemCodificada}`;
-        
-            // Abre o WhatsApp em nova aba
-            window.open(linkWhatsApp, '_blank');
-        });
-        </script>
-        
+<script>
+document.getElementById('cakeForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Impede o envio tradicional do formulário
+
+    // Número do WhatsApp (somente números, com DDI e DDD)
+    const numero = "5561986172421";
+
+    // Coleta dos valores do formulário
+    const massa = document.getElementById('massa').value;
+    const recheio = document.getElementById('recheio').value;
+    const kilos = document.getElementById('kilos').value;
+    const cupcakes = document.getElementById('cupcakes').value;
+    const doces = document.getElementById('doces').value;
+    const salgados = document.getElementById('salgados').value;
+
+    // Monta a mensagem formatada para o WhatsApp
+    const mensagem = `🍰 *Novo Pedido - Duda Cake* 🍰
+
+*Massa:* ${massa}
+*Recheio:* ${recheio}
+*Quantidade:* ${kilos}
+*Cupcakes:* ${cupcakes}
+*Doces:* ${doces}
+*Salgados:* ${salgados}
+
+📸 *Envie a foto de referência do topo do bolo aqui no chat!*`;
+
+    // Codifica a mensagem para uso na URL
+    const mensagemCodificada = encodeURIComponent(mensagem);
+
+    // Monta o link do WhatsApp com a mensagem
+    const linkWhatsApp = `https://wa.me/${numero}?text=${mensagemCodificada}`;
+
+    // Abre o WhatsApp em uma nova aba
+    window.open(linkWhatsApp, '_blank');
+});
+</script>
+
 </body>
+
 </html>
